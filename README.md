@@ -42,3 +42,6 @@ En este caso, para la relación medicos y especialidades irá en la clase especi
 Sí hace esto no es necesario guardar medicos en especialidades, solo especialidades en medicos. 
 Caso contrario, sí usa `@JoinTable()` este se debe ubicar en la clase dueña y se deben implementar guardar ambas
 instancias en la otra.
+
+Por otro lado, si se tiene [entitiy exists exception](https://jakarta.ee/specifications/persistence/2.2/apidocs/javax/persistence/entityexistsexception)
+se debe anotar la llave primaria con `@PodamExclude` 

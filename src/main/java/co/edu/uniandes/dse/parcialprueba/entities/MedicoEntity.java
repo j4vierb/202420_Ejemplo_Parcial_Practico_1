@@ -2,6 +2,7 @@ package co.edu.uniandes.dse.parcialprueba.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import uk.co.jemos.podam.common.PodamExclude;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.List;
 @Data
 public class MedicoEntity {
   @Id
+  @PodamExclude
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
 
@@ -17,7 +19,8 @@ public class MedicoEntity {
   private String apellido;
   private List<String> registro = new ArrayList<>();
 
-  @ManyToMany
+  @PodamExclude
+  @ManyToMany(fetch = FetchType.LAZY)
   @JoinTable(
     name = "medico_especialidad",
     joinColumns = @JoinColumn(name = "id_medico"),
